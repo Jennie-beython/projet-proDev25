@@ -33,7 +33,9 @@ if (isset($_GET['id'])) {
         $update_stmt = $pdo->prepare($update_sql);
         $update_stmt->execute([$filename, $category_id, $file_id]);
 
-        echo "Fichier modifié avec succès!";
+        // Redirection vers admin.php après modification
+        header("Location: admin.php");
+        exit;
     }
 } else {
     echo "ID de fichier manquant.";
@@ -41,31 +43,30 @@ if (isset($_GET['id'])) {
 }
 ?>
 
-<!-- Formulaire de modification -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Modifier le fichier</title>
 </head>
 <body>
     <h1>Modifier le fichier</h1>
 
-    <form action="edit.php?id=<?php echo $file['id']; ?>" method="post">
+    <form action="edit.php?id=<?php echo htmlspecialchars($file['id']); ?>" method="post">
         <label for="filename">Nom du fichier :</label>
-        <input type="text" name="filename" value="<?php echo $file['filename']; ?>" required><br><br>
+        <input type="text" name="filename" value="<?php echo htmlspecialchars($file['filename']); ?>" required /><br /><br />
 
         <label for="category_id">Catégorie :</label>
         <select name="category_id" required>
             <?php foreach ($categories as $category): ?>
                 <option value="<?php echo $category['id']; ?>" <?php if ($category['id'] == $file['category_id']) echo 'selected'; ?>>
-                    <?php echo $category['name']; ?>
+                    <?php echo htmlspecialchars($category['name']); ?>
                 </option>
             <?php endforeach; ?>
-        </select><br><br>
+        </select><br /><br />
 
-        <input type="submit" value="Modifier">
+        <input type="submit" value="Modifier" />
     </form>
 </body>
 </html>
