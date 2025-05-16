@@ -8,7 +8,8 @@ for ($i = 0; $i < 20; $i++) {
     $author = $faker->name;
     $description = $faker->paragraph(4);
     $cover = 'https://picsum.photos/seed/' . urlencode($title) . '/200/300';
-    $stmt = $pdo->prepare('INSERT INTO books (title, author, description, cover) VALUES (?, ?, ?, ?)');
-    $stmt->execute([$title, $author, $description, $cover]);
+    $quantity = $faker->numberBetween(1, 20);
+    $stmt = $pdo->prepare('INSERT INTO books (title, author, description, cover, quantity) VALUES (?, ?, ?, ?, ?)');
+    $stmt->execute([$title, $author, $description, $cover, $quantity]);
 }
 echo "Livres générés !";
