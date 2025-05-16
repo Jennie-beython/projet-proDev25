@@ -1,0 +1,13 @@
+# Fichiers et dossiers à ignorer par Git
+/vendor/
+/public/uploads/
+/.env
+composer.lock
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+/node_modules/
+.env.local
+.env.*.local
