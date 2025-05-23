@@ -27,7 +27,7 @@ $books = $pdo->query('SELECT * FROM books ORDER BY created_at DESC')->fetchAll()
     <div class="header-actions">
     <?php if (isset($_SESSION['user_id'])): ?>
         <a href="public/account.php" class="btn">Mon compte</a>
-        <a href="public/logout.php" class="btn">Déconnexion</a>
+        <a href="./public/logout.php" class="btn">Déconnexion</a>
         <?php if (!empty($_SESSION['is_admin'])): ?>
             <a href="public/admin_books.php" class="btn">Administration</a>
         <?php endif; ?>
