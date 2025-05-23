@@ -34,18 +34,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 } else {
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['is_admin'] = $user['is_admin'];
-                    header('Location: index.php');
+                    header('Location: ../index.php');
                     exit;
                 }
             }
         } else {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['is_admin'] = $user['is_admin'];
-            header('Location: index.php');
+            header('Location: ../index.php');
             exit;
         }
     } else {
-        // Si l'utilisateur existe et a activé l'OTP, afficher le champ OTP même si le mot de passe est faux
         if ($user && !empty($user['otp_enabled']) && !empty($user['otp_secret'])) {
             $showOtp = true;
         }

@@ -14,14 +14,14 @@ if ((!$user || !$user['is_accepted']) && empty($user['is_admin'])) {
 }
 $id = $_GET['id'] ?? null;
 if (!$id) {
-    header('Location: index.php');
+    header('Location: ../index.php');
     exit;
 }
 $stmt = $pdo->prepare('SELECT * FROM books WHERE id = ?');
 $stmt->execute([$id]);
 $book = $stmt->fetch();
 if (!$book) {
-    header('Location: index.php');
+    header('Location: ../index.php');
     exit;
 }
 ?>
@@ -36,7 +36,7 @@ if (!$book) {
 <header>
     <span class="header-title">Détail du livre</span>
     <div class="header-actions">
-        <a href="index.php" class="btn">Accueil</a>
+        <a href="../index.php" class="btn">Accueil</a>
         <a href="logout.php" class="btn">Déconnexion</a>
     </div>
 </header>

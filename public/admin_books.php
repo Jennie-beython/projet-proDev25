@@ -2,7 +2,7 @@
 session_start();
 require_once __DIR__ . '/../config/database.php';
 if (empty($_SESSION['user_id']) || empty($_SESSION['is_admin'])) {
-    header('Location: login.php');
+    header('Location: ../public/login.php');
     exit;
 }
 $tab = $_GET['tab'] ?? 'books';
@@ -127,7 +127,7 @@ if ($tab === 'users') {
 <header>
     <span class="header-title">Administration</span>
     <div class="header-actions">
-        <a href="index.php" class="btn">Accueil</a>
+        <a href="../index.php" class="btn">Accueil</a>
         <a href="logout.php" class="btn">Déconnexion</a>
     </div>
 </header>

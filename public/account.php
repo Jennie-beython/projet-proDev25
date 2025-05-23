@@ -79,7 +79,7 @@ if (!empty($user['otp_secret'])) {
 <header>
     <span class="header-title">Mon compte</span>
     <div class="header-actions">
-        <a href="index.php" class="btn">Accueil</a>
+        <a href="../index.php" class="btn">Accueil</a>
         <a href="logout.php" class="btn">Déconnexion</a>
     </div>
 </header>
